@@ -31,7 +31,6 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-        int tempnum = 0;
         int a1position = 0;
         int a2position = 1;
 
@@ -45,7 +44,6 @@ public class Main {
             nums[a2position] = array2[j];
             a2position += 2;
         }
-        System.out.print(Arrays.toString(nums));
         return nums;
 
     }
@@ -83,27 +81,23 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-        int ascii = 0;
-        int numcaptitals = 0;
         int[] capitals = new int[words.length];
         for (int i = 0; i< words.length;i++){
-            for (int j = 0; j < words[i].length(); j++){
-                ascii = (int)words[i].charAt(j);
-                if(ascii>=65 && ascii<=90){
-                    numcaptitals++;
-                }
-            }
-            capitals[i] = numcaptitals;
-            numcaptitals = 0;
+            capitals[i] = countCapitalLetters(words[i]);
         }
-        System.out.println(Arrays.toString(capitals));
         return capitals;
-
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
+        int ascii = 0;
+        int numcapitals = 0;
+        for (int i = 0; i < word.length(); i++){
+            ascii = (int)word.charAt(i);
+            if(ascii>=65 && ascii<=90){
+                numcapitals++;
+            }
+        }
+        return numcapitals;
 
     }
 
